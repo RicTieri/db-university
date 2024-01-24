@@ -1,0 +1,50 @@
+---------------------- 1 ----------------------
+
+SELECT *
+FROM `students`
+JOIN `degrees`
+ON `students`.`degree_id` = `degrees`.`id`
+WHERE `degrees`.`name` = 'Corso di Laurea in Economia'
+
+---------------------- 2 ----------------------
+
+SELECT * 
+FROM `departments`
+JOIN `degrees`
+ON `departments`.`id` = `degrees`.`department_id`
+WHERE `degrees`.`level` = 'magistrale'
+AND `departments`.`name` = 'Dipartimento di Neuroscienze';
+
+---------------------- 3 ----------------------
+
+SELECT * 
+FROM `courses`
+JOIN `course_teacher`
+ON `courses`.`id` = `course_teacher`.`course_id`
+JOIN `teachers`
+ON `course_teacher`.`teacher_id` = `teachers`.`id`
+WHERE `teachers`.`id` = 44;
+
+---------------------- 4 ----------------------
+
+
+
+---------------------- 5 ----------------------
+
+SELECT * 
+FROM `teachers`
+JOIN `course_teacher`
+ON `course_teacher`.`teacher_id` = `teachers`.`id`
+JOIN `courses`
+ON `courses`.`id` = `course_teacher`.`course_id`
+JOIN `degrees`
+ON `degrees`.`id` = `courses`.`degree_id`
+JOIN `departments`
+ON `departments`.`id` = `degrees`.`department_id`;
+
+---------------------- 6 ----------------------
+
+
+
+---------------------- 7 ----------------------
+
