@@ -27,7 +27,13 @@ WHERE `teachers`.`id` = 44;
 
 ---------------------- 4 ----------------------
 
-
+SELECT *
+FROM `students`
+JOIN `degrees`
+ON `students`.`degree_id` = `degrees`.`id`
+JOIN `departments`
+ON `degrees`.`department_id` = `departments`.`id`
+ORDER BY `students`.`surname`, `students`.`name`;
 
 ---------------------- 5 ----------------------
 
@@ -38,13 +44,21 @@ ON `course_teacher`.`teacher_id` = `teachers`.`id`
 JOIN `courses`
 ON `courses`.`id` = `course_teacher`.`course_id`
 JOIN `degrees`
-ON `degrees`.`id` = `courses`.`degree_id`
-JOIN `departments`
-ON `departments`.`id` = `degrees`.`department_id`;
+ON `degrees`.`id` = `courses`.`degree_id`;
 
 ---------------------- 6 ----------------------
 
-
+SELECT * 
+FROM `teachers`
+JOIN `course_teacher`
+ON `course_teacher`.`teacher_id` = `teachers`.`id`
+JOIN `courses`
+ON `courses`.`id` = `course_teacher`.`course_id`
+JOIN `degrees`
+ON `degrees`.`id` = `courses`.`degree_id`
+JOIN `departments`
+ON `departments`.`id` = `degrees`.`department_id`
+WHERE `departments`.`name` = 'Dipartimento di Matematica';
 
 ---------------------- 7 ----------------------
 
